@@ -14,7 +14,7 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>17.0-rc2</version>
+        <version>17.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -162,9 +162,9 @@
   <ciManagement />
   <mailingLists />
   <scm>
-    <connection>scm:git:git@github.com:jinahya/jinahya-se.git</connection>
-    <developerConnection>scm:git:git@github.com:jinahya/jinahya-se.git</developerConnection>
-    <url>https://github.com/jinahya/jinahya-se</url>
+    <connection>scm:git:git@github.com:jinahya/proguard-with-maven.git</connection>
+    <developerConnection>scm:git:git@github.com:jinahya/proguard-with-maven.git</developerConnection>
+    <url>https://github.com/jinahya/proguard-with-maven</url>
     <tag>HEAD</tag>
   </scm>
   <prerequisites>
