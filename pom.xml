@@ -108,6 +108,7 @@
         <groupId>com.github.wvengen</groupId>
         <artifactId>proguard-maven-plugin</artifactId>
         <configuration>
+          <includeDependency>false</includeDependency>
           <injar>${project.build.finalName}-jar-with-dependencies.${project.packaging}</injar>
           <outjar>${project.build.finalName}-proguard.${project.packaging}</outjar>
           <libs>
