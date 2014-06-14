@@ -117,7 +117,7 @@
             <lib>${java.secure.socket.extension.classes}</lib>
           </libs>
           <options>
-            <option>-keep public class HelloWorld { public static *; }</option>
+            <option>-keep public class com.github.jinahya.test.HelloWorld { public static *; }</option>
           </options>
         </configuration>
         <dependencies>
