@@ -145,17 +145,15 @@
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
           <execution>
-            <id>enforce-java-1.7</id>
+            <id>enforce-requireJavaVersion-1.7.0</id>
             <goals>
-              <!--
               <goal>enforce</goal>
-              -->
             </goals>
             <configuration>
               <rules>
                 <requireJavaVersion>
                   <message>ProGuard doesn't work for JDK 8</message>
-                  <version>[${maven.compiler.target}]</version>
+                  <version>[,1.8.0)</version>
                 </requireJavaVersion>
               </rules>
             </configuration>
