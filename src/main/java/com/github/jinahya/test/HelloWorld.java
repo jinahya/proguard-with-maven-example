@@ -1,6 +1,6 @@
 
 
-package com.googlecode.jinahya.test;
+package com.github.jinahya.test;
 
 
 public class HelloWorld {

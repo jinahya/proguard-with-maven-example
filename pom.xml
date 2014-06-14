@@ -145,9 +145,7 @@
           <execution>
             <id>enforce-java-1.7</id>
             <goals>
-              <!--
               <goal>enforce</goal>
-              -->
             </goals>
             <configuration>
               <rules>
