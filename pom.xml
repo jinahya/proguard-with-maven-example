@@ -14,7 +14,7 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>17.0</version>
+        <version>18.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -141,13 +141,15 @@
           </libs>
           <options>
             <option>-keep public class com.github.jinahya.test.HelloWorld { public static *; }</option>
+            <option>-keepattributes Signature</option>
+            <option>-keepattributes InnerClasses</option>
           </options>
         </configuration>
         <dependencies>
           <dependency>
             <groupId>net.sf.proguard</groupId>
             <artifactId>proguard-base</artifactId>
-            <version>4.11</version>
+            <version>5.0</version>
             <scope>runtime</scope>
           </dependency>
         </dependencies>
