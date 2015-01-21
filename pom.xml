@@ -6,7 +6,7 @@
 
   <!-- The Basics -->
   <groupId>com.googlecode.jinahya.test</groupId>
-  <artifactId>proguard-with-maven</artifactId>
+  <artifactId>proguard-with-maven-example</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <dependencyManagement>
@@ -15,16 +15,6 @@
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>18.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.3.2</version>
-      </dependency>
-      <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>6.8.8</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -39,19 +29,21 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
+      <version>3.3.2</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
+      <version>6.8.17</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
     <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
     <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
@@ -61,26 +53,7 @@
 
   <!-- Build Settings -->
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <!--groupId>com.pyx4me</groupId-->
-          <groupId>com.github.wvengen</groupId>
-          <artifactId>proguard-maven-plugin</artifactId>
-          <version>2.0.7</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.4</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-enforcer-plugin</artifactId>
-          <version>1.3.1</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+    <pluginManagement/>
     <plugins>
       <plugin>
         <groupId>com.github.github</groupId>
@@ -97,9 +70,9 @@
         <executions>
           <execution>
             <goals>
-	      <!--
-              <goal>site</goal>
-	      -->
+              <!--
+                    <goal>site</goal>
+              -->
             </goals>
             <phase>site</phase>
           </execution>
@@ -108,6 +81,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
         <configuration>
           <archive>
             <manifest>
@@ -132,6 +106,7 @@
         <!--groupId>com.pyx4me</groupId-->
         <groupId>com.github.wvengen</groupId>
         <artifactId>proguard-maven-plugin</artifactId>
+        <version>2.0.7</version>
         <configuration>
           <includeDependency>false</includeDependency>
           <injar>${project.build.finalName}-jar-with-dependencies.${project.packaging}</injar>
@@ -151,7 +126,7 @@
           <dependency>
             <groupId>net.sf.proguard</groupId>
             <artifactId>proguard-base</artifactId>
-            <version>5.0</version>
+            <version>5.1</version>
             <scope>runtime</scope>
           </dependency>
         </dependencies>
@@ -168,6 +143,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.3.1</version>
         <executions>
           <execution>
             <id>enforce-requireJavaVersion-1.7.0</id>
