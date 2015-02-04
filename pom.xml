@@ -38,7 +38,7 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>6.8.17</version>
+      <version>6.8.21</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -122,7 +122,7 @@
             <option>-keepattributes Signature</option>
             <option>-keepattributes *Annotation*</option>
             <option>-keepattributes InnerClasses,EnclosingMethod</option>
-<!--            <option>-dontwarn sun.misc.Unsafe</option>
+            <!--            <option>-dontwarn sun.misc.Unsafe</option>
             <option>-dontwarn com.google.common.collect.MinMaxPriorityQueue</option>-->
           </options>
         </configuration>
@@ -130,7 +130,7 @@
           <dependency>
             <groupId>net.sf.proguard</groupId>
             <artifactId>proguard-base</artifactId>
-            <version>5.1</version>
+            <version>5.2</version>
             <scope>runtime</scope>
           </dependency>
         </dependencies>
