@@ -7,7 +7,7 @@
   <!-- The Basics -->
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <dependencyManagement/>
   <dependencies>
@@ -61,7 +61,7 @@
       <plugin>
         <groupId>com.github.github</groupId>
         <artifactId>site-maven-plugin</artifactId>
-        <version>0.10</version>
+        <version>0.11</version>
         <configuration>
           <server>github</server>
           <message>creating site for ${project.version}</message>
@@ -82,17 +82,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>com.github.jinahya.test.HelloWorld</mainClass>
-            </manifest>
-          </archive>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-        </configuration>
+        <version>2.5.3</version>
         <executions>
           <execution>
             <id>assembly</id>
@@ -100,11 +90,20 @@
             <goals>
               <goal>single</goal>
             </goals>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>com.github.jinahya.example.Application</mainClass>
+                </manifest>
+              </archive>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+            </configuration>
           </execution>
         </executions>
       </plugin>
       <plugin>
-        <!--groupId>com.pyx4me</groupId-->
         <groupId>com.github.wvengen</groupId>
         <artifactId>proguard-maven-plugin</artifactId>
         <version>2.0.7</version>
@@ -118,12 +117,10 @@
             <lib>${java.secure.socket.extension.classes}</lib>
           </libs>
           <options>
-            <option>-keep public class com.github.jinahya.test.HelloWorld { public static *; }</option>
+            <option>-keep public class com.github.jinahya.example.Application { public static void main(java.lang.String[]); }</option>
             <option>-keepattributes Signature</option>
             <option>-keepattributes *Annotation*</option>
             <option>-keepattributes InnerClasses,EnclosingMethod</option>
-            <!--            <option>-dontwarn sun.misc.Unsafe</option>
-            <option>-dontwarn com.google.common.collect.MinMaxPriorityQueue</option>-->
           </options>
         </configuration>
         <dependencies>
@@ -141,27 +138,6 @@
             <goals>
               <goal>proguard</goal>
             </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.3.1</version>
-        <executions>
-          <execution>
-            <id>enforce-requireJavaVersion-1.7.0</id>
-            <goals>
-              <!--goal>enforce</goal-->
-            </goals>
-            <configuration>
-              <rules>
-                <requireJavaVersion>
-                  <message>ProGuard doesn't work for JDK 8</message>
-                  <version>[,1.8.0)</version>
-                </requireJavaVersion>
-              </rules>
-            </configuration>
           </execution>
         </executions>
       </plugin>
