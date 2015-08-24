@@ -1,16 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
   <!-- The Basics -->
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>0.2-SNAPSHOT</version>
+  <version>0.2</version>
   <packaging>jar</packaging>
-  <dependencyManagement/>
-  <dependencies/>
+  <dependencyManagement />
+  <dependencies />
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -25,7 +23,7 @@
 
   <!-- Build Settings -->
   <build>
-    <pluginManagement/>
+    <pluginManagement />
     <plugins>
       <plugin>
         <groupId>com.github.wvengen</groupId>
@@ -78,7 +76,7 @@
       </plugin>
     </plugins>
   </build>
-  <reporting/>
+  <reporting />
 
   <!-- More Project Information -->
   <name>${project.artifactId}</name>
@@ -110,11 +108,11 @@
     <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
     <url>https://github.com/jinahya/${project.artifactId}</url>
-    <tag>HEAD</tag>
+    <tag>0.2</tag>
   </scm>
-  <prerequisites/>
+  <prerequisites />
   <repositories />
   <pluginRepositories />
-  <distributionManagement/>
-  <profiles/>
+  <distributionManagement />
+  <profiles />
 </project>
