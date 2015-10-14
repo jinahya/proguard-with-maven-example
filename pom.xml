@@ -5,7 +5,7 @@
   <!-- The Basics -->
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>0.2</version>
+  <version>0.3</version>
   <packaging>jar</packaging>
   <dependencyManagement />
   <dependencies />
@@ -28,7 +28,7 @@
       <plugin>
         <groupId>com.github.wvengen</groupId>
         <artifactId>proguard-maven-plugin</artifactId>
-        <version>2.0.10</version>
+        <version>2.0.11</version>
         <configuration>
           <includeDependency>flase</includeDependency>
           <injar>${project.build.finalName}.${project.packaging}</injar>
@@ -108,7 +108,7 @@
     <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
     <url>https://github.com/jinahya/${project.artifactId}</url>
-    <tag>0.2</tag>
+    <tag>0.3</tag>
   </scm>
   <prerequisites />
   <repositories />
