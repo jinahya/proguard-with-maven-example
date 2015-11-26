@@ -1,17 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
   <modelVersion>4.0.0</modelVersion>
 
-  <!-- The Basics -->
+  <parent>
+    <groupId>com.github.jinahya</groupId>
+    <artifactId>jinahya-parent</artifactId>
+    <version>0.3</version>
+  </parent>
+
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>0.3</version>
+  <version>0.4</version>
   <packaging>jar</packaging>
-  <dependencyManagement />
-  <dependencies />
+
+  <name>proguard-with-maven-example</name>
+  <description>proguard with maven example</description>
+  <url>https://github.com/jinahya/proguard-with-maven-example</url>
+  <inceptionYear>2014</inceptionYear>
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>jinahya</id>
+      <name>Jin Kwon</name>
+      <email>jinahya@gmail.com</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</connection>
+    <developerConnection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</developerConnection>
+    <url>https://github.com/jinahya/proguard-with-maven-example</url>
+    <tag>0.4</tag>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/jinahya/proguard-with-maven-example/issues</url>
+  </issueManagement>
+
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
@@ -21,9 +55,7 @@
     <java.secure.socket.extension.classes>${java.home}/lib/jsse.jar</java.secure.socket.extension.classes>
   </properties>
 
-  <!-- Build Settings -->
   <build>
-    <pluginManagement />
     <plugins>
       <plugin>
         <groupId>com.github.wvengen</groupId>
@@ -63,56 +95,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.2</version>
-        <configuration>
-          <tagNameFormat>@{project.version}</tagNameFormat>
-          <pushChanges>false</pushChanges>
-          <localCheckout>true</localCheckout>
-          <goals>install</goals>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
-  <reporting />
-
-  <!-- More Project Information -->
-  <name>${project.artifactId}</name>
-  <url>https://www.jinahya.com/mvn/site/${project.groupId}/${project.artifactId}/${project.version}</url>
-  <inceptionYear>2014</inceptionYear>
-  <licenses>
-    <license>
-      <name>Apache 2</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-      <comments>A business-friendly OSS license</comments>
-    </license>
-  </licenses>
-  <organization />
-  <developers>
-    <developer>
-      <id>jinahya</id>
-      <name>Jin Kwon</name>
-      <email>jinahya@gmail.com</email>
-    </developer>
-  </developers>
-  <contributors />
-
-  <!-- Environment Settings -->
-  <issueManagement />
-  <ciManagement />
-  <mailingLists />
-  <scm>
-    <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
-    <url>https://github.com/jinahya/${project.artifactId}</url>
-    <tag>0.3</tag>
-  </scm>
-  <prerequisites />
-  <repositories />
-  <pluginRepositories />
-  <distributionManagement />
-  <profiles />
 </project>
