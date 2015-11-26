@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -12,7 +10,7 @@
 
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>0.4-SNAPSHOT</version>
+  <version>0.4</version>
   <packaging>jar</packaging>
 
   <name>proguard-with-maven-example</name>
@@ -40,7 +38,7 @@
     <connection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</developerConnection>
     <url>https://github.com/jinahya/proguard-with-maven-example</url>
-    <tag>HEAD</tag>
+    <tag>0.4</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issues</system>
