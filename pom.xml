@@ -10,7 +10,7 @@
 
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>0.5.2-SNAPSHOT</version>
+  <version>0.5.2</version>
   <packaging>jar</packaging>
 
   <name>proguard-with-maven-example</name>
@@ -38,7 +38,7 @@
     <connection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</developerConnection>
     <url>https://github.com/jinahya/proguard-with-maven-example</url>
-    <tag>HEAD</tag>
+    <tag>0.5.2</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issues</system>
