@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.jinahya</groupId>
     <artifactId>jinahya-parent</artifactId>
-    <version>0.7.4</version>
+    <version>0.7.5</version>
   </parent>
 
   <groupId>com.googlecode.jinahya.test</groupId>
@@ -53,14 +53,25 @@
     <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
     <java.cryptographic.extension.classes>${java.home}/lib/jce.jar</java.cryptographic.extension.classes>
     <java.secure.socket.extension.classes>${java.home}/lib/jsse.jar</java.secure.socket.extension.classes>
+    <version.proguard-base>5.3.3</version.proguard-base>
   </properties>
+
+  <dependencyManagement>
+      <dependencies>
+          <dependency>
+            <groupId>net.sf.proguard</groupId>
+            <artifactId>proguard-base</artifactId>
+            <version>${version.proguard-base}</version>
+          </dependency>
+      </dependencies>
+  </dependencyManagement>
 
   <build>
     <plugins>
       <plugin>
         <groupId>com.github.wvengen</groupId>
         <artifactId>proguard-maven-plugin</artifactId>
-        <version>2.0.13</version>
+        <version>2.0.14</version>
         <configuration>
           <includeDependency>flase</includeDependency>
           <injar>${project.build.finalName}.${project.packaging}</injar>
@@ -81,7 +92,7 @@
           <dependency>
             <groupId>net.sf.proguard</groupId>
             <artifactId>proguard-base</artifactId>
-            <version>5.2.1</version>
+            <version>${version.proguard-base}</version>
             <scope>runtime</scope>
           </dependency>
         </dependencies>
