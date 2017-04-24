@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.jinahya</groupId>
     <artifactId>jinahya-parent</artifactId>
-    <version>0.7.5</version>
+    <version>0.7.6</version>
   </parent>
 
   <groupId>com.googlecode.jinahya.test</groupId>
@@ -57,13 +57,13 @@
   </properties>
 
   <dependencyManagement>
-      <dependencies>
-          <dependency>
-            <groupId>net.sf.proguard</groupId>
-            <artifactId>proguard-base</artifactId>
-            <version>${version.proguard-base}</version>
-          </dependency>
-      </dependencies>
+    <dependencies>
+      <dependency>
+        <groupId>net.sf.proguard</groupId>
+        <artifactId>proguard-base</artifactId>
+        <version>${version.proguard-base}</version>
+      </dependency>
+    </dependencies>
   </dependencyManagement>
 
   <build>
