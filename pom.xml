@@ -53,7 +53,7 @@
     <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
     <java.cryptographic.extension.classes>${java.home}/lib/jce.jar</java.cryptographic.extension.classes>
     <java.secure.socket.extension.classes>${java.home}/lib/jsse.jar</java.secure.socket.extension.classes>
-    <version.net.sf.proguard>6.0</version.net.sf.proguard>
+    <version.net.sf.proguard>6.0.1</version.net.sf.proguard>
   </properties>
 
   <dependencyManagement>
