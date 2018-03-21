@@ -10,7 +10,7 @@
 
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>0.5.3</version>
+  <version>0.5.4</version>
   <packaging>jar</packaging>
 
   <name>proguard-with-maven-example</name>
@@ -38,7 +38,7 @@
     <connection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</developerConnection>
     <url>https://github.com/jinahya/proguard-with-maven-example</url>
-    <tag>0.5.3</tag>
+    <tag>0.5.4</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issues</system>
@@ -53,7 +53,7 @@
     <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
     <java.cryptographic.extension.classes>${java.home}/lib/jce.jar</java.cryptographic.extension.classes>
     <java.secure.socket.extension.classes>${java.home}/lib/jsse.jar</java.secure.socket.extension.classes>
-    <version.proguard-base>5.3.3</version.proguard-base>
+    <version.net.sf.proguard>6.0.1</version.net.sf.proguard>
   </properties>
 
   <dependencyManagement>
@@ -61,7 +61,7 @@
       <dependency>
         <groupId>net.sf.proguard</groupId>
         <artifactId>proguard-base</artifactId>
-        <version>${version.proguard-base}</version>
+        <version>${version.net.sf.proguard}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -77,6 +77,9 @@
           <injar>${project.build.finalName}.${project.packaging}</injar>
           <outjar>${project.build.finalName}-proguard.${project.packaging}</outjar>
           <libs>
+            <!--
+                <lib>${java.home}/jmods/java.base.jmod(!**.jar;!module-info.class)</lib>
+            -->
             <lib>${java.bootstrap.classes}</lib>
             <lib>${java.cryptographic.extension.classes}</lib>
             <lib>${java.secure.socket.extension.classes}</lib>
@@ -92,7 +95,7 @@
           <dependency>
             <groupId>net.sf.proguard</groupId>
             <artifactId>proguard-base</artifactId>
-            <version>${version.proguard-base}</version>
+            <version>${version.net.sf.proguard}</version>
             <scope>runtime</scope>
           </dependency>
         </dependencies>
@@ -108,4 +111,20 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>java8</id>
+      <activation>
+        <jdk>1.8</jdk>
+      </activation>
+    </profile>
+    <profile>
+      <id>java9</id>
+      <activation>
+        <jdk>9</jdk>
+      </activation>
+    </profile>
+  </profiles>
+
 </project>
