@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.jinahya</groupId>
     <artifactId>jinahya-parent</artifactId>
-    <version>0.7.6</version>
+    <version>0.7.8</version>
   </parent>
 
   <groupId>com.googlecode.jinahya.test</groupId>
@@ -13,9 +13,9 @@
   <version>0.5.4-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>proguard-with-maven-example</name>
+  <name>${project.artifactId}</name>
   <description>proguard with maven example</description>
-  <url>https://github.com/jinahya/proguard-with-maven-example</url>
+  <url>https://github.com/jinahya/${project.artifactId}</url>
   <inceptionYear>2014</inceptionYear>
   <licenses>
     <license>
@@ -35,14 +35,14 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</connection>
-    <developerConnection>scm:git:git@github.com:jinahya/proguard-with-maven-example.git</developerConnection>
-    <url>https://github.com/jinahya/proguard-with-maven-example</url>
+    <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
+    <url>https://github.com/jinahya/${projet.artifactId}</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issues</system>
-    <url>https://github.com/jinahya/proguard-with-maven-example/issues</url>
+    <url>https://github.com/jinahya/${project.artifactId}/issues</url>
   </issueManagement>
 
   <properties>
@@ -53,7 +53,7 @@
     <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
     <java.cryptographic.extension.classes>${java.home}/lib/jce.jar</java.cryptographic.extension.classes>
     <java.secure.socket.extension.classes>${java.home}/lib/jsse.jar</java.secure.socket.extension.classes>
-    <version.proguard-base>5.3.3</version.proguard-base>
+    <version.proguard-base>6.0.3</version.proguard-base>
   </properties>
 
   <dependencyManagement>
@@ -65,6 +65,10 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  
+  <prerequisites>
+    <maven>3.0.4</maven>
+  </prerequisites>
 
   <build>
     <plugins>
