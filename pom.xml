@@ -61,7 +61,7 @@
       <dependency>
         <groupId>net.sf.proguard</groupId>
         <artifactId>proguard-base</artifactId>
-        <version>${version.net.sf.proguard}</version>
+        <version>${version.proguard-base}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
