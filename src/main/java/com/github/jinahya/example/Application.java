@@ -40,7 +40,6 @@ public class Application {
 
     public void public_instance() {
         System.out.println(public_instance);
-
     }
 
     protected void protected_instance() {
