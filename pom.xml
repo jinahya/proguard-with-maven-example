@@ -50,9 +50,6 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
     <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
-    <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
-    <java.cryptographic.extension.classes>${java.home}/lib/jce.jar</java.cryptographic.extension.classes>
-    <java.secure.socket.extension.classes>${java.home}/lib/jsse.jar</java.secure.socket.extension.classes>
     <version.proguard-base>6.1.1</version.proguard-base>
   </properties>
 
@@ -105,7 +102,6 @@
       </plugins>
     </pluginManagement>
     <plugins>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -119,7 +115,7 @@
             <configuration>
               <skip>true</skip>
               <rules>
-                <dependencyConvergence />
+                <dependencyConvergence/>
               </rules>
             </configuration>
           </execution>
@@ -167,9 +163,9 @@
             <artifactId>proguard-maven-plugin</artifactId>
             <configuration>
               <libs>
-                <lib>${java.bootstrap.classes}</lib>
-                <lib>${java.cryptographic.extension.classes}</lib>
-                <lib>${java.secure.socket.extension.classes}</lib>
+                <lib>${java.home}/lib/rt.jar</lib>
+                <lib>${java.home}/lib/jce.jar</lib>
+                <lib>${java.home}/lib/jsse.jar</lib>
               </libs>
             </configuration>
           </plugin>
