@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.jinahya</groupId>
     <artifactId>jinahya-parent</artifactId>
-    <version>0.8.0</version>
+    <version>0.8.4</version>
   </parent>
 
   <groupId>com.googlecode.jinahya.test</groupId>
@@ -50,6 +50,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
     <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+    <version.maven-javadoc-plugin>3.1.1</version.maven-javadoc-plugin>
     <version.proguard-base>6.1.1</version.proguard-base>
   </properties>
 
