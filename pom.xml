@@ -10,7 +10,7 @@
 
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>0.6.0</version>
+  <version>0.6.1</version>
   <packaging>jar</packaging>
 
   <name>${project.artifactId}</name>
@@ -34,15 +34,11 @@
     </developer>
   </developers>
 
-  <prerequisites>
-    <maven>3.0.4</maven>
-  </prerequisites>
-
   <scm>
     <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
-    <url>https://github.com/jinahya/${projet.artifactId}</url>
-    <tag>0.6.0</tag>
+    <url>https://github.com/jinahya/${project.artifactId}</url>
+    <tag>0.6.1</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issues</system>
@@ -54,9 +50,6 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
     <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
-    <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
-    <java.cryptographic.extension.classes>${java.home}/lib/jce.jar</java.cryptographic.extension.classes>
-    <java.secure.socket.extension.classes>${java.home}/lib/jsse.jar</java.secure.socket.extension.classes>
     <version.proguard-base>6.1.1</version.proguard-base>
   </properties>
 
@@ -109,7 +102,6 @@
       </plugins>
     </pluginManagement>
     <plugins>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -171,9 +163,9 @@
             <artifactId>proguard-maven-plugin</artifactId>
             <configuration>
               <libs>
-                <lib>${java.bootstrap.classes}</lib>
-                <lib>${java.cryptographic.extension.classes}</lib>
-                <lib>${java.secure.socket.extension.classes}</lib>
+                <lib>${java.home}/lib/rt.jar</lib>
+                <lib>${java.home}/lib/jce.jar</lib>
+                <lib>${java.home}/lib/jsse.jar</lib>
               </libs>
             </configuration>
           </plugin>
