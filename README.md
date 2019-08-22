@@ -1,7 +1,6 @@
-proguard-with-maven-example
-===================
+# proguard-with-maven-example
 
-[![Dependency Status](https://www.versioneye.com/user/projects/56de5be2df573d0048dafc4d/badge.svg)](https://www.versioneye.com/user/projects/56de5be2df573d0048dafc4d)
+[![CircleCI](https://circleci.com/gh/jinahya/proguard-with-maven-example/tree/develop.svg?style=svg)](https://circleci.com/gh/jinahya/proguard-with-maven-example/tree/develop)
 [![Build Status](https://travis-ci.org/jinahya/proguard-with-maven-example.svg?branch=master)](https://travis-ci.org/jinahya/proguard-with-maven-example)
 
 How to ProGuard with Apache Maven

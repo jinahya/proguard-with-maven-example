@@ -5,12 +5,12 @@
   <parent>
     <groupId>com.github.jinahya</groupId>
     <artifactId>jinahya-parent</artifactId>
-    <version>0.8.0</version>
+    <version>0.8.4</version>
   </parent>
 
   <groupId>com.googlecode.jinahya.test</groupId>
   <artifactId>proguard-with-maven-example</artifactId>
-  <version>0.6.1</version>
+  <version>0.6.2</version>
   <packaging>jar</packaging>
 
   <name>${project.artifactId}</name>
@@ -38,7 +38,7 @@
     <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
     <url>https://github.com/jinahya/${project.artifactId}</url>
-    <tag>0.6.1</tag>
+    <tag>0.6.2</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issues</system>
@@ -50,6 +50,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
     <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+    <version.maven-javadoc-plugin>3.1.1</version.maven-javadoc-plugin>
     <version.proguard-base>6.1.1</version.proguard-base>
   </properties>
 
