@@ -47,11 +47,11 @@
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <maven.compiler.testSource>1.8</maven.compiler.testSource>
-    <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+    <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+    <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
+    <maven.compiler.testTarget>${maven.compiler.testSource}</maven.compiler.testTarget>
     <version.maven-javadoc-plugin>3.1.1</version.maven-javadoc-plugin>
-    <version.proguard-base>6.1.1</version.proguard-base>
+    <version.proguard-base>6.2.0</version.proguard-base>
   </properties>
 
   <dependencyManagement>
@@ -70,7 +70,7 @@
         <plugin>
           <groupId>com.github.wvengen</groupId>
           <artifactId>proguard-maven-plugin</artifactId>
-          <version>2.0.14</version>
+          <version>2.1.1</version>
           <configuration>
             <includeDependency>false</includeDependency>
             <injar>${project.build.finalName}.${project.packaging}</injar>
