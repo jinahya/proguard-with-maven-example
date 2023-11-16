@@ -49,15 +49,21 @@
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
     <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
     <maven.compiler.testTarget>${maven.compiler.testSource}</maven.compiler.testTarget>
-    <version.proguard-base>7.4.0</version.proguard-base>
+<!--    <version.proguard-base>7.4.0</version.proguard-base>-->
+    <version.proguard-core>9.1.0</version.proguard-core>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+<!--      <dependency>-->
+<!--        <groupId>com.guardsquare</groupId>-->
+<!--        <artifactId>proguard-base</artifactId>-->
+<!--        <version>${version.proguard-base}</version>-->
+<!--      </dependency>-->
       <dependency>
         <groupId>com.guardsquare</groupId>
-        <artifactId>proguard-base</artifactId>
-        <version>${version.proguard-base}</version>
+        <artifactId>proguard-core</artifactId>
+        <version>${version.proguard-core}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -81,14 +87,20 @@
               <option>-keepattributes InnerClasses,EnclosingMethod</option>
             </options>
           </configuration>
-<!--          <dependencies>-->
+          <dependencies>
 <!--            <dependency>-->
 <!--              <groupId>com.guardsquare</groupId>-->
 <!--              <artifactId>proguard-base</artifactId>-->
 <!--              <version>${version.proguard-base}</version>-->
 <!--              <scope>runtime</scope>-->
 <!--            </dependency>-->
-<!--          </dependencies>-->
+            <dependency>
+              <groupId>com.guardsquare</groupId>
+              <artifactId>proguard-core</artifactId>
+              <version>${version.proguard-core}</version>
+              <scope>runtime</scope>
+            </dependency>
+          </dependencies>
           <executions>
             <execution>
               <id>proguard</id>
