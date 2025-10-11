@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -49,17 +50,19 @@
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
     <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
     <maven.compiler.testTarget>${maven.compiler.testSource}</maven.compiler.testTarget>
-<!--    <version.proguard-base>7.4.0</version.proguard-base>-->
-    <version.proguard-core>9.1.0</version.proguard-core>
+    <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-base/versions -->
+    <version.proguard-base>7.8.0</version.proguard-base>
+    <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-core/versions -->
+    <version.proguard-core>9.2.0</version.proguard-core>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-<!--      <dependency>-->
-<!--        <groupId>com.guardsquare</groupId>-->
-<!--        <artifactId>proguard-base</artifactId>-->
-<!--        <version>${version.proguard-base}</version>-->
-<!--      </dependency>-->
+      <dependency>
+        <groupId>com.guardsquare</groupId>
+        <artifactId>proguard-base</artifactId>
+        <version>${version.proguard-base}</version>
+      </dependency>
       <dependency>
         <groupId>com.guardsquare</groupId>
         <artifactId>proguard-core</artifactId>
@@ -74,8 +77,9 @@
         <plugin>
           <groupId>com.github.wvengen</groupId>
           <artifactId>proguard-maven-plugin</artifactId>
-<!--          <version>2.4.0</version>-->
-          <version>2.6.0</version>
+          <!--          <version>2.4.0</version>-->
+          <!-- https://central.sonatype.com/artifact/com.github.wvengen/proguard-maven-plugin/versions -->
+          <version>2.7.0</version>
           <configuration>
             <includeDependency>false</includeDependency>
             <injar>${project.build.finalName}.${project.packaging}</injar>
@@ -86,14 +90,15 @@
               <option>-keepattributes *Annotation*</option>
               <option>-keepattributes InnerClasses,EnclosingMethod</option>
             </options>
+            <proguardVersion>${version.proguard-base}</proguardVersion>
           </configuration>
           <dependencies>
-<!--            <dependency>-->
-<!--              <groupId>com.guardsquare</groupId>-->
-<!--              <artifactId>proguard-base</artifactId>-->
-<!--              <version>${version.proguard-base}</version>-->
-<!--              <scope>runtime</scope>-->
-<!--            </dependency>-->
+            <dependency>
+              <groupId>com.guardsquare</groupId>
+              <artifactId>proguard-base</artifactId>
+              <version>${version.proguard-base}</version>
+              <scope>runtime</scope>
+            </dependency>
             <dependency>
               <groupId>com.guardsquare</groupId>
               <artifactId>proguard-core</artifactId>
@@ -117,7 +122,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.4.1</version>
+        <version>3.6.2</version>
         <executions>
           <execution>
             <id>enforce-dependency-convergence</id>
@@ -127,7 +132,7 @@
             <configuration>
               <skip>true</skip>
               <rules>
-                <dependencyConvergence />
+                <dependencyConvergence/>
               </rules>
             </configuration>
           </execution>
@@ -162,12 +167,12 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>tidy-maven-plugin</artifactId>
-        <version>1.2.0</version>
+        <version>1.4.0</version>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
-        <version>2.16.1</version>
+        <version>2.19.1</version>
       </plugin>
     </plugins>
   </build>
@@ -197,7 +202,7 @@
     <profile>
       <id>java9+</id>
       <activation>
-        <jdk>[1.9,)</jdk>
+        <jdk>[1.9,23]</jdk>
       </activation>
       <build>
         <plugins>
@@ -207,6 +212,25 @@
             <configuration>
               <libs>
                 <lib>${java.home}/jmods/java.base.jmod</lib>
+              </libs>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>java24+</id>
+      <activation>
+        <jdk>[24,)</jdk>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.wvengen</groupId>
+            <artifactId>proguard-maven-plugin</artifactId>
+            <configuration>
+              <libs>
+                <!--                <lib>${java.home}/jmods/java.base.jmod</lib>-->
               </libs>
             </configuration>
           </plugin>
