@@ -220,6 +220,7 @@
     </profile>
     <profile>
       <id>java24+</id>
+      <!-- https://github.com/adoptium/adoptium-support/issues/1271 -->
       <activation>
         <jdk>[24,)</jdk>
       </activation>
