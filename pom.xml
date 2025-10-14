@@ -51,18 +51,18 @@
     <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
     <maven.compiler.testTarget>${maven.compiler.testSource}</maven.compiler.testTarget>
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-base/versions -->
-    <version.proguard-base>7.8.0</version.proguard-base>
+<!--    <version.proguard-base>7.8.0</version.proguard-base>-->
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-core/versions -->
     <version.proguard-core>9.2.0</version.proguard-core>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>com.guardsquare</groupId>
-        <artifactId>proguard-base</artifactId>
-        <version>${version.proguard-base}</version>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>com.guardsquare</groupId>-->
+<!--        <artifactId>proguard-base</artifactId>-->
+<!--        <version>${version.proguard-base}</version>-->
+<!--      </dependency>-->
       <dependency>
         <groupId>com.guardsquare</groupId>
         <artifactId>proguard-core</artifactId>
@@ -93,12 +93,12 @@
             <proguardVersion>${version.proguard-base}</proguardVersion>
           </configuration>
           <dependencies>
-            <dependency>
-              <groupId>com.guardsquare</groupId>
-              <artifactId>proguard-base</artifactId>
-              <version>${version.proguard-base}</version>
-              <scope>runtime</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--              <groupId>com.guardsquare</groupId>-->
+<!--              <artifactId>proguard-base</artifactId>-->
+<!--              <version>${version.proguard-base}</version>-->
+<!--              <scope>runtime</scope>-->
+<!--            </dependency>-->
             <dependency>
               <groupId>com.guardsquare</groupId>
               <artifactId>proguard-core</artifactId>
