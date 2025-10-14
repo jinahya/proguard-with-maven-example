@@ -202,7 +202,8 @@
     <profile>
       <id>java9+</id>
       <activation>
-        <jdk>[1.9,23]</jdk>
+<!--        <jdk>[1.9,23]</jdk>-->
+        <jdk>[1.9,]</jdk>
       </activation>
       <build>
         <plugins>
@@ -218,25 +219,25 @@
         </plugins>
       </build>
     </profile>
-    <profile>
-      <id>java24+</id>
-      <!-- https://github.com/adoptium/adoptium-support/issues/1271 -->
-      <activation>
-        <jdk>[24,)</jdk>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.github.wvengen</groupId>
-            <artifactId>proguard-maven-plugin</artifactId>
-            <configuration>
-              <libs>
-                <!--                <lib>${java.home}/jmods/java.base.jmod</lib>-->
-              </libs>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
+<!--    <profile>-->
+<!--      <id>java24+</id>-->
+<!--      &lt;!&ndash; https://github.com/adoptium/adoptium-support/issues/1271 &ndash;&gt;-->
+<!--      <activation>-->
+<!--        <jdk>[24,)</jdk>-->
+<!--      </activation>-->
+<!--      <build>-->
+<!--        <plugins>-->
+<!--          <plugin>-->
+<!--            <groupId>com.github.wvengen</groupId>-->
+<!--            <artifactId>proguard-maven-plugin</artifactId>-->
+<!--            <configuration>-->
+<!--              <libs>-->
+<!--                <lib>${java.home}/jmods/java.base.jmod</lib>-->
+<!--              </libs>-->
+<!--            </configuration>-->
+<!--          </plugin>-->
+<!--        </plugins>-->
+<!--      </build>-->
+<!--    </profile>-->
   </profiles>
 </project>
