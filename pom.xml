@@ -47,8 +47,10 @@
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+    <maven.compiler.release>8</maven.compiler.release>
     <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
     <maven.compiler.testTarget>${maven.compiler.testSource}</maven.compiler.testTarget>
+    <maven.compiler.testRelease>${maven.compiler.release}</maven.compiler.testRelease>
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-base/versions -->
 <!--    <version.proguard-base>7.8.0</version.proguard-base>-->
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-core/versions -->
