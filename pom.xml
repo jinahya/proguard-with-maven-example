@@ -203,7 +203,9 @@
     <profile>
       <id>java9+</id>
       <activation>
-        <jdk>[1.9,]</jdk>
+        <file>
+          <exists>${java.home}/jmods/java.base.jmod</exists>
+        </file>
       </activation>
       <build>
         <plugins>
@@ -219,25 +221,54 @@
         </plugins>
       </build>
     </profile>
-<!--    <profile>-->
-<!--      <id>java24+</id>-->
-<!--      &lt;!&ndash; https://github.com/adoptium/adoptium-support/issues/1271 &ndash;&gt;-->
-<!--      <activation>-->
-<!--        <jdk>[24,)</jdk>-->
-<!--      </activation>-->
-<!--      <build>-->
-<!--        <plugins>-->
-<!--          <plugin>-->
-<!--            <groupId>com.github.wvengen</groupId>-->
-<!--            <artifactId>proguard-maven-plugin</artifactId>-->
-<!--            <configuration>-->
-<!--              <libs>-->
-<!--                <lib>${java.home}/jmods/java.base.jmod</lib>-->
-<!--              </libs>-->
-<!--            </configuration>-->
-<!--          </plugin>-->
-<!--        </plugins>-->
-<!--      </build>-->
-<!--    </profile>-->
+    <profile>
+      <id>java9+-without-jmods</id>
+      <!-- e.g. Temurin 24+; https://openjdk.org/jeps/493 -->
+      <!-- https://github.com/adoptium/adoptium-support/issues/1271 -->
+      <activation>
+        <jdk>[9,)</jdk>
+        <file>
+          <missing>${java.home}/jmods/java.base.jmod</missing>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.6.4</version>
+            <executions>
+              <execution>
+                <id>extract-java.base</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>${java.home}/bin/jimage</executable>
+                  <arguments>
+                    <argument>extract</argument>
+                    <argument>--include</argument>
+                    <argument>regex:/java.base/.*</argument>
+                    <argument>--dir</argument>
+                    <argument>${project.build.directory}/jimage</argument>
+                    <argument>${java.home}/lib/modules</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.github.wvengen</groupId>
+            <artifactId>proguard-maven-plugin</artifactId>
+            <configuration>
+              <libs>
+                <lib>${project.build.directory}/jimage/java.base</lib>
+              </libs>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 </project>

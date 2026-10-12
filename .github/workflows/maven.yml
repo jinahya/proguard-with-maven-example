@@ -9,9 +9,6 @@ jobs:
       fail-fast: false
       matrix:
         java: ['8', '11', '17', '21', '25']
-    # JDK 24+ builds no longer ship jmods/java.base.jmod (JEP 493)
-    # https://github.com/adoptium/adoptium-support/issues/1271
-    continue-on-error: ${{ matrix.java == '25' }}
     steps:
     - uses: actions/checkout@v4
     - name: Set up Java
