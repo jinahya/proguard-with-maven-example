@@ -5,7 +5,7 @@
   <parent>
     <groupId>io.github.jinahya</groupId>
     <artifactId>jinahya-parent</artifactId>
-    <version>1.0.3</version>
+    <version>1.1.1</version>
   </parent>
 
   <artifactId>proguard-with-maven-example</artifactId>
@@ -54,7 +54,7 @@
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-base/versions -->
 <!--    <version.proguard-base>7.8.0</version.proguard-base>-->
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-core/versions -->
-    <version.proguard-core>9.2.0</version.proguard-core>
+    <version.proguard-core>9.4.0</version.proguard-core>
   </properties>
 
   <dependencyManagement>
@@ -123,7 +123,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.6.2</version>
+        <version>3.6.3</version>
         <executions>
           <execution>
             <id>enforce-dependency-convergence</id>
@@ -168,12 +168,12 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>tidy-maven-plugin</artifactId>
-        <version>1.4.0</version>
+        <version>1.4.1</version>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
-        <version>2.21.0</version>
+        <version>2.23.0</version>
       </plugin>
     </plugins>
   </build>
