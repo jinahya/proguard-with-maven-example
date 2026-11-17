@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.github.jinahya</groupId>
+    <groupId>io.github.jinahya</groupId>
     <artifactId>jinahya-parent</artifactId>
-    <version>0.9.1</version>
+    <version>1.1.4</version>
   </parent>
 
   <artifactId>proguard-with-maven-example</artifactId>
@@ -51,9 +51,11 @@
     <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
     <maven.compiler.testTarget>${maven.compiler.testSource}</maven.compiler.testTarget>
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-base/versions -->
-    <version.proguard-base>7.8.0</version.proguard-base>
+<!--    <version.proguard-base>7.8.0</version.proguard-base>-->
+    <version.proguard-base>7.10.0</version.proguard-base>
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-core/versions -->
-    <version.proguard-core>9.2.0</version.proguard-core>
+<!--    <version.proguard-core>9.2.0</version.proguard-core>-->
+    <version.proguard-core>9.4.1</version.proguard-core>
   </properties>
 
   <dependencyManagement>
@@ -122,7 +124,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.6.2</version>
+        <version>3.7.0</version>
         <executions>
           <execution>
             <id>enforce-dependency-convergence</id>
@@ -167,12 +169,12 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>tidy-maven-plugin</artifactId>
-        <version>1.4.0</version>
+        <version>1.5.0</version>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
-        <version>2.19.1</version>
+        <version>2.25.2</version>
       </plugin>
     </plugins>
   </build>
@@ -202,7 +204,9 @@
     <profile>
       <id>java9+</id>
       <activation>
-        <jdk>[1.9,23]</jdk>
+        <file>
+          <exists>${java.home}/jmods/java.base.jmod</exists>
+        </file>
       </activation>
       <build>
         <plugins>
@@ -218,19 +222,53 @@
         </plugins>
       </build>
     </profile>
+    <!--
+      For JDKs shipped without jmods (JEP 493; e.g., Temurin 24+), extract java.base from the runtime image (jrt:/)
+      into a jar and use it as the library.
+      Remove this profile (and src/build/ExtractJdk.java), and activate the java9+ profile unconditionally, once
+      ProGuard falls back to jrt:/ for missing jmods by itself; see https://github.com/Guardsquare/proguard/pull/541.
+    -->
     <profile>
-      <id>java24+</id>
+      <id>java9+-without-jmods</id>
       <activation>
-        <jdk>[24,)</jdk>
+        <jdk>[9,)</jdk>
+        <file>
+          <missing>${java.home}/jmods/java.base.jmod</missing>
+        </file>
       </activation>
+      <properties>
+        <proguard.jdk.library>${project.build.directory}/jdk/java.base.jar</proguard.jdk.library>
+      </properties>
       <build>
         <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.6.3</version>
+            <executions>
+              <execution>
+                <id>extract-jdk</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>${java.home}/bin/java</executable>
+                  <arguments>
+                    <argument>${project.basedir}/src/build/ExtractJdk.java</argument>
+                    <argument>${proguard.jdk.library}</argument>
+                    <argument>java.base</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
           <plugin>
             <groupId>com.github.wvengen</groupId>
             <artifactId>proguard-maven-plugin</artifactId>
             <configuration>
               <libs>
-                <!--                <lib>${java.home}/jmods/java.base.jmod</lib>-->
+                <lib>${proguard.jdk.library}</lib>
               </libs>
             </configuration>
           </plugin>
