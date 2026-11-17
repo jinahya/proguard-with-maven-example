@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -47,8 +47,10 @@
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+    <maven.compiler.release>8</maven.compiler.release>
     <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
     <maven.compiler.testTarget>${maven.compiler.testSource}</maven.compiler.testTarget>
+    <maven.compiler.testRelease>${maven.compiler.release}</maven.compiler.testRelease>
     <!-- https://central.sonatype.com/artifact/com.guardsquare/proguard-base/versions -->
 <!--    <version.proguard-base>7.8.0</version.proguard-base>-->
     <version.proguard-base>7.10.0</version.proguard-base>
@@ -224,6 +226,7 @@
     <!--
       For JDKs shipped without jmods (JEP 493; e.g., Temurin 24+), extract java.base from the runtime image (jrt:/)
       into a jar and use it as the library.
+      https://github.com/adoptium/adoptium-support/issues/1271
       Remove this profile (and src/build/ExtractJdk.java), and activate the java9+ profile unconditionally, once
       ProGuard falls back to jrt:/ for missing jmods by itself; see https://github.com/Guardsquare/proguard/pull/541.
     -->

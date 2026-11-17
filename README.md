@@ -41,3 +41,11 @@ sh docker.maven.sh <tag> <phases...>
 sh docker.maven.sh 3-eclipse-temurin-25 clean package # no jmods; uses java9+-without-jmods
 sh docker.maven.sh 3-eclipse-temurin-21 clean package # with jmods; uses java9+
 ```
+
+[`docker.maven.3-amazoncorretto.sh`](docker.maven.3-amazoncorretto.sh) and
+[`docker.maven.3-eclipse-temurin.sh`](docker.maven.3-eclipse-temurin.sh) build with each LTS release (8, 11, 17, 21, 25)
+of those distributions.
+
+```shell
+sh docker.maven.3-eclipse-temurin.sh
+```
